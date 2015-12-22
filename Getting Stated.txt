@@ -1,0 +1,52 @@
+Hello CHAOSers!
+
+This document is designed to assist you should you forget how to use git.
+
+The main process to follow is this:
+
+When you first start working on a new repository (repo), you will want to open git shell on your computer, and you can cd (change directory) to the folder you want to place the new repo.
+	cd c:/Users/Someuser/Documents
+
+And then you will want to clone the repo. This will create a new directory/folder in your current directory:
+	git clone [URL]
+	git clone https://github.com/MrChretien/chaos-test.git
+
+Make sure Mr. Chretien (or whoever is the admin for the repo on Github has added you as a contributor)
+
+Once you have the repo set up, you basically need to follow this procedure. 
+
+1) Before you start, you will need to pull any recent changes:
+	git pull
+
+2) You make your changes to the project/directory in eclipse or whatever you are using to modify files.
+
+3) When you are done, you will need to get ready to push your changes. First, you need to specify what is changed.
+	git add -A
+	The -A means you want to push everything that you have changed. But if you wanted to only push one file, for example, you could do:
+		git add ./path/to/file/file.java
+
+4) You will then need to finalize your changes, by commiting them:
+	git commit -m "Your message goes here"
+	You will want to make sure your message is understandable and helpful, because it will tell others what you changed. 
+		For example, if you added a class to control an arm on the robot, you should do something like:
+			git commit -m "Adds the class to control the robot's arm"
+
+5) You can do multiple commits in a row, but when you want to push your changes to the repo for everyone to see, you will want to do the following
+	git pull
+		(To make sure there are no merge conflicts; if there are, git will tell you, and you will need to check eclipse for the conflicting files - the changes will be shown between the following symbols: <, >)	
+	If everything worked, you can then:
+	git push
+
+
+
+You should all do this tutorial, especially if you're confused:
+https://www.codecademy.com/learn/learn-git
+
+And there's so much you can do with git - Feel free to ask me, (Josh), or google!
+	You can:
+		revert to an old commit (git reset [options])
+		throw away your recent changes (git stash)
+		make new branches (git branch / git checkout)
+		do fancy merges
+		review your commits (git log)
+		track down the source of a commit that stopped the code from compiling! (This is a lot more complicated to set up)
