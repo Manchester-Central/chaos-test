@@ -12,6 +12,7 @@ public class Main {
 		printers.add(new JoshPrinter());
 		//Add your printers here:
 		//printers.add(new Printer());
+		printers.add( new KatiePrinter());
 		
 		//This will print out each of the printers to the console at the bottom of eclipse.
 		for(HelloWorldPrinter printer: printers){
