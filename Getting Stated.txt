@@ -15,6 +15,9 @@ Make sure Mr. Chretien (or whoever is the admin for the repo on Github has added
 
 Once you have the repo set up, you basically need to follow this procedure. 
 
+0) Whenever you want to do things with git, you will want to make sure you cd into the directory! Otherwise, git will you tell you that you are not in a repo.
+cd c:/Users/Someuser/Documents/chaos-test
+
 1) Before you start, you will need to pull any recent changes:
 	git pull
 
