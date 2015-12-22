@@ -47,9 +47,15 @@ https://www.codecademy.com/learn/learn-git
 
 And there's so much you can do with git - Feel free to ask me, (Josh), or google!
 	You can:
+		look at the current status of your local repo (git status)
 		revert to an old commit (git reset [options])
 		throw away your recent changes (git stash)
 		make new branches (git branch / git checkout)
 		do fancy merges
 		review your commits (git log)
 		track down the source of a commit that stopped the code from compiling! (This is a lot more complicated to set up)
+
+
+Another thing you can do is use git right in eclipse! I would recommend getting the hang of it with git shell, because that forces you to learn the basics, in case you need to complicated stuff the git plugin for eclipse won't let you!
+But, here's a tutorial: http://eclipsesource.com/blogs/tutorials/egit-tutorial/
+And you can just google "git eclipse" for more help!
