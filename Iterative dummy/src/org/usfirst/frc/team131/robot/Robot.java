@@ -15,82 +15,93 @@ import edu.wpi.first.wpilibj.Talon;
  * directory.
  */
 public class Robot extends IterativeRobot {
-    final String defaultAuto = "Default";
-    final String customAuto = "My Auto";
-    String autoSelected;
-    SendableChooser chooser;
-<<<<<<< HEAD
+	final String defaultAuto = "Default";
+	final String customAuto = "My Auto";
+	String autoSelected;
+	SendableChooser chooser;
+
 	public static OI oi;
-	
-=======
-    
-    final Talon frontLeft, frontRight, backLeft, backRight;
 
-    public Robot() {
-    	this.frontLeft = new Talon(1);
-    	this.frontRight= new Talon(2);
-    	this.backLeft = new Talon(3);
-    	this.backRight = new Talon(4);
-    }
-    
->>>>>>> 3149ae2efabcf9b55923a66cea4cd6c8d1203975
-    /**
-     * This function is run when the robot is first started up and should be
-     * used for any initialization code.
-     */
-    public void robotInit() {
-    	oi = new OI();
-        chooser = new SendableChooser();
-        chooser.addDefault("Default Auto", defaultAuto);
-        chooser.addObject("My Auto", customAuto);
-        SmartDashboard.putData("Auto choices", chooser);
-    }
-    
+	final Talon frontLeft, frontRight, backLeft, backRight;
+
+	public Robot() {
+		this.frontLeft = new Talon(1);
+		this.frontRight = new Talon(2);
+		this.backLeft = new Talon(3);
+		this.backRight = new Talon(4);
+	}
+
 	/**
-	 * This autonomous (along with the chooser code above) shows how to select between different autonomous modes
-	 * using the dashboard. The sendable chooser code works with the Java SmartDashboard. If you prefer the LabVIEW
-	 * Dashboard, remove all of the chooser code and uncomment the getString line to get the auto name from the text box
-	 * below the Gyro
-	 *
-	 * You can add additional auto modes by adding additional comparisons to the switch structure below with additional strings.
-	 * If using the SendableChooser make sure to add them to the chooser code above as well.
+	 * This function is run when the robot is first started up and should be
+	 * used for any initialization code.
 	 */
-    public void autonomousInit() {
-    	autoSelected = (String) chooser.getSelected();
-//		autoSelected = SmartDashboard.getString("Auto Selector", defaultAuto);
+	public void robotInit() {
+		oi = new OI();
+		chooser = new SendableChooser();
+		chooser.addDefault("Default Auto", defaultAuto);
+		chooser.addObject("My Auto", customAuto);
+		SmartDashboard.putData("Auto choices", chooser);
+	}
+
+	/**
+	 * This autonomous (along with the chooser code above) shows how to select
+	 * between different autonomous modes using the dashboard. The sendable
+	 * chooser code works with the Java SmartDashboard. If you prefer the
+	 * LabVIEW Dashboard, remove all of the chooser code and uncomment the
+	 * getString line to get the auto name from the text box below the Gyro
+	 *
+	 * You can add additional auto modes by adding additional comparisons to the
+	 * switch structure below with additional strings. If using the
+	 * SendableChooser make sure to add them to the chooser code above as well.
+	 */
+	public void autonomousInit() {
+		autoSelected = (String) chooser.getSelected();
+		// autoSelected = SmartDashboard.getString("Auto Selector",
+		// defaultAuto);
 		System.out.println("Auto selected: " + autoSelected);
-    }
+	}
 
-    /**
-     * This function is called periodically during autonomous
-     */
-    public void autonomousPeriodic() {
-    	switch(autoSelected) {
-    	case customAuto:
-        //Put custom auto code here   
-            break;
-    	case defaultAuto:
-    	default:
-    	//Put default auto code here
-            break;
-    	}
-    }
+	/**
+	 * This function is called periodically during autonomous
+	 */
+	public void autonomousPeriodic() {
+		switch (autoSelected) {
+		case customAuto:
+			// Put custom auto code here
+			break;
+		case defaultAuto:
+		default:
+			// Put default auto code here
+			break;
+		}
+	}
 
-    /**
-     * This function is called periodically during operator control
-     */
-    public void teleopPeriodic() {
-        this.frontLeft.set(0.25);
-        this.frontRight.set(0.25);
-        this.backLeft.set(0.25);
-        this.backRight.set(0.25);
-    }
-    
-    /**
-     * This function is called periodically during test mode
-     */
-    public void testPeriodic() {
-    
-    }
-    
+	public void setDriveSpeed(double left, double right){
+		this.frontLeft.set(left);
+		this.frontRight.set(right);
+		this.backLeft.set(left);
+		this.backRight.set(right);	
+	}
+	
+	
+	/**
+	 * This function is called periodically during operator control
+	 */
+	
+	public void teleopPeriodic() {
+		if (oi.driver.buttonPressed(1)) {
+			setDriveSpeed(0.25, 0.25);
+		} else {
+			setDriveSpeed(oi.driver.getLeftY(),oi.driver.getRightY() );
+			
+		}
+	}
+
+	/**
+	 * This function is called periodically during test mode
+	 */
+	public void testPeriodic() {
+
+	}
+
 }

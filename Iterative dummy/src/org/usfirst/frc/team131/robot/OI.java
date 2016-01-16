@@ -29,6 +29,9 @@ public class OI {
 		public double getRightY () {
 			return stick.getRawAxis(4);
 		}
+		public Boolean buttonPressed (int buttonNum) {
+			return stick.getRawButton(buttonNum);
+		}
 	}
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.
