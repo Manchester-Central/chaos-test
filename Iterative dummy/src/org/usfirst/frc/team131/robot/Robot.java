@@ -22,13 +22,10 @@ public class Robot extends IterativeRobot {
 
 	public static OI oi;
 
-	final Talon frontLeft, frontRight, backLeft, backRight;
+	DriveBase drive;
 
 	public Robot() {
-		this.frontLeft = new Talon(1);
-		this.frontRight = new Talon(2);
-		this.backLeft = new Talon(3);
-		this.backRight = new Talon(4);
+		drive = new DriveBase();
 	}
 
 	/**
@@ -76,23 +73,18 @@ public class Robot extends IterativeRobot {
 		}
 	}
 
-	public void setDriveSpeed(double left, double right){
-		this.frontLeft.set(left);
-		this.frontRight.set(right);
-		this.backLeft.set(left);
-		this.backRight.set(right);	
-	}
+	
 	
 	
 	/**
 	 * This function is called periodically during operator control
 	 */
 	
-	public void teleopPeriodic() {
+	public void tesleopPeriodic() {
 		if (oi.driver.buttonPressed(1)) {
-			setDriveSpeed(0.25, 0.25);
+			drive.setDriveSpeed(0.25, 0.25);
 		} else {
-			setDriveSpeed(oi.driver.getLeftY(),oi.driver.getRightY() );
+			drive.setDriveSpeed(oi.driver.getLeftY(),oi.driver.getRightY() );
 			
 		}
 	}
