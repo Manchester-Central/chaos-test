@@ -24,10 +24,10 @@ public class OI {
 			return stick.getRawAxis(1);
 		}
 		public double getRightX () {
-			return stick.getRawAxis(3);	
+			return stick.getRawAxis(2);	
 		}
 		public double getRightY () {
-			return stick.getRawAxis(4);
+			return stick.getRawAxis(3);
 		}
 		public Boolean buttonPressed (int buttonNum) {
 			return stick.getRawButton(buttonNum);

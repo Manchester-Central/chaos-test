@@ -22,7 +22,7 @@ public class Robot extends IterativeRobot {
 
 	public static OI oi;
 
-	DriveBase drive;
+	DriveBase drive; 
 
 	public Robot() {
 		drive = new DriveBase();
@@ -79,8 +79,8 @@ public class Robot extends IterativeRobot {
 	/**
 	 * This function is called periodically during operator control
 	 */
-	
-	public void tesleopPeriodic() {
+	@Override
+	public void teleopPeriodic() {
 		if (oi.driver.buttonPressed(1)) {
 			drive.setDriveSpeed(0.25, 0.25);
 		} else {
