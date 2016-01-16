@@ -2,9 +2,10 @@
 package org.usfirst.frc.team131.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.Timer;
+
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.Talon;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -18,7 +19,16 @@ public class Robot extends IterativeRobot {
     final String customAuto = "My Auto";
     String autoSelected;
     SendableChooser chooser;
-	
+    
+    final Talon frontLeft, frontRight, backLeft, backRight;
+
+    public Robot() {
+    	this.frontLeft = new Talon(1);
+    	this.frontRight= new Talon(2);
+    	this.backLeft = new Talon(3);
+    	this.backRight = new Talon(4);
+    }
+    
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -64,7 +74,10 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-        
+        this.frontLeft.set(0.25);
+        this.frontRight.set(0.25);
+        this.backLeft.set(0.25);
+        this.backRight.set(0.25);
     }
     
     /**
